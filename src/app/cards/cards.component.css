@@ -1,0 +1,10 @@
+.card {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+  }
+
+.row {
+    margin: 30px auto;
+    width: 60%;
+}
