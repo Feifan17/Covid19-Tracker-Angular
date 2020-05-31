@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-select',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
 
-  selected = "N/A";
+  countries: String[];
+  countriesSub: Subscription;
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getCountryList();
+    this.countriesSub = this.dataService.getCountriesObs().subscribe(countryList => {
+      this.countries = countryList;
+    })
   }
 
 }
