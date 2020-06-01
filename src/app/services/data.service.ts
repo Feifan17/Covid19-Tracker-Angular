@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { countryData } from '../models/countryData.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
 
-    private countries: String[] = [];
-    private countriesObs = new Subject<String[]>();
+    private countriesData: countryData[] = [];
+    private countriesDataObs = new Subject<countryData[]>();
     
     constructor(private http: HttpClient) { }
 
-
-    getCountryList() {
-        this.http.get<{countries: String[]}>('http://localhost:3000/countries')
+    getSummaryData(): void {
+        this.http.get<{countries: countryData[]}>('http://localhost:3000/summary')
         .subscribe(res => {
-            this.countries = res.countries;
-            this.countriesObs.next([...this.countries]);
-        })
+            this.countriesData = res.countries;
+            this.countriesDataObs.next([...this.countriesData]);
+        });
     }
 
-    getCountriesObs() {
-        return this.countriesObs.asObservable();
+    getCountriesDataObs() {
+        return this.countriesDataObs.asObservable();
     }
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  totalInfected: number;
+  totalRecovered: number;
+  totalDeaths: number;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getCountriesDataObs().subscribe(res => {
+      this.totalInfected = res[0].totalConfirmed;
+      this.totalRecovered = res[0].totalRecovered;
+      this.totalDeaths = res[0].totalDeaths;
+    })
   }
 
 }
