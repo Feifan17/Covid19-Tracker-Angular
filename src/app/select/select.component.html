@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
     <mat-form-field>
         <mat-label>Select a country</mat-label>
-            <mat-select >
+            <mat-select [(value)]="selected" (selectionChange)="countryChange()">
                 <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
             </mat-select>
     </mat-form-field>

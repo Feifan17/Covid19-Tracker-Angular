@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { countryData } from '../models/countryData.model';
 
 @Component({
   selector: 'app-cards',
@@ -8,18 +8,12 @@ import { DataService } from '../services/data.service';
 })
 export class CardsComponent implements OnInit {
 
-  totalInfected: number;
-  totalRecovered: number;
-  totalDeaths: number;
+  @Input() countryData: countryData;
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.dataService.getCountriesDataObs().subscribe(res => {
-      this.totalInfected = res[0].totalConfirmed;
-      this.totalRecovered = res[0].totalRecovered;
-      this.totalDeaths = res[0].totalDeaths;
-    })
+    console.log(this.countryData);
   }
 
 }

@@ -1,4 +1,8 @@
 <app-header></app-header>
-<app-cards></app-cards>
-<app-select></app-select>
-<app-chart></app-chart>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngIf="!isLoading">
+    <app-cards [countryData]="selectedData"></app-cards>
+    <app-select [countries]="countries" [selected]="countries[0]" (selectedChange)="onCountryChange($event)"></app-select>
+    <app-chart [countryData]="selectedData"></app-chart>
+</div>
+

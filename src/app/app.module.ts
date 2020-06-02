@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { ChartComponent } from './chart/chart.component';
 import { CardsComponent } from './cards/cards.component';
@@ -14,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -21,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     HeaderComponent,
     ChartComponent,
     CardsComponent,
@@ -35,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     ChartsModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

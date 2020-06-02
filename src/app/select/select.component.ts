@@ -1,30 +1,29 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { Subscription } from 'rxjs';
-import { countryData } from '../models/countryData.model';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })
-export class SelectComponent implements OnInit, OnDestroy {
+export class SelectComponent implements OnInit {
 
-  countries: String[];
-  countriesData: countryData[];
-  countriesDataSub: Subscription;
+  @Input() countries: String[] = [];
+  @Input() selected: String = "";
+  @Output() selectedChange: EventEmitter<String> = new EventEmitter();
 
-  constructor(public dataService: DataService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.dataService.getSummaryData();
-    this.countriesDataSub = this.dataService.getCountriesDataObs().subscribe(res => {
-      this.countries = res.map(country => country.country);
-    });
+
   }
 
-  ngOnDestroy(): void {
-    this.countriesDataSub.unsubscribe();
+  countryChange(): void {
+    this.selectedChange.emit(this.selected);
   }
+  
+
+  
 
 }

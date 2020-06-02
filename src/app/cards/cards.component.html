@@ -1,29 +1,32 @@
 <div class="row container">
    <mat-card class="card col-md-4">
-        <mat-card-header>
-          <mat-card-title>Infected</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{totalInfected}}</p>
-        </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Confirmed</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>total: {{countryData.totalConfirmed}}</p>
+        <p>new: {{countryData.newConfirmed}}</p>
+      </mat-card-content>
     </mat-card>
 
     <mat-card class="card col-md-4">
-            <mat-card-header>
-              <mat-card-title>Recovered</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{totalRecovered}}</p>
-            </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Recovered</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>total: {{countryData.totalRecovered}}</p>
+        <p>new: {{countryData.newRecovered}}</p>
+      </mat-card-content>
     </mat-card>
 
     <mat-card class="card col-md-4">
-            <mat-card-header>
-              <mat-card-title>Deaths</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{totalDeaths}}</p>
-            </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Deaths</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>total: {{countryData.totalDeaths}}</p>
+        <p>new: {{countryData.newDeaths}}</p>
+      </mat-card-content>
     </mat-card>
 </div>
   
